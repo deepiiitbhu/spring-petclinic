@@ -7,5 +7,14 @@ pipeline {
       }
     }
 
+    stage('Static Analysis') {
+      steps {
+        sh '''./mvnw sonar:sonar \\
+  -Dsonar.host.url=http://172.31.25.253:9000/ \\
+  -Dsonar.projectKey=PetClinic \\
+  -Dsonar.login=sqp_fc74c8773c9f8e135bc81a904d3b423ca30bd6ec'''
+      }
+    }
+
   }
 }
